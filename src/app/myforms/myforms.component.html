@@ -1,0 +1,41 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Simple Submit</h2>
+  <form #f="ngForm"
+        (ngSubmit)="onSubmit(f.value)"
+        class="ui form">
+
+    <div class="field">
+      <input type="text"
+             id="skuInput"
+             placeholder="SKU"
+             name="sku" ngModel>
+    </div>
+
+    <div>
+      {{sku}}
+    </div>
+
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
+
+<!--  Form  with builder -->
+
+<div class="ui raised segment">
+  <h2 class="ui header">Form with Builder</h2>
+  <form [formGroup]="myForm"
+        (ngSubmit)="onSubmitb(myForm.value)"
+        class="ui form">
+
+    <div class="field">
+      <label for="skuInput">SKU</label>
+      <input type="text"
+             id="skuInput"
+             placeholder="SKU"
+             [formControl]="myForm.controls['skub']">
+    </div>
+    <div>{{ myForm.controls['skub'].value }}</div>
+
+  <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
